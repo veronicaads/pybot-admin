@@ -57,6 +57,13 @@ class BuktiTransfer(models.Model):
     total_transfer = models.IntegerField()
     gambar = models.FileField()
 
+class InfoShop(models.Model):
+    idshop = models.CharField(max_length=5, primary_key=True)
+    namashop = models.CharField(max_length=50, blank=True)
+    provinsi = models.CharField(max_length=50, blank=True)
+    kota = models.CharField(max_length=50, blank=True)
+    notlp = models.CharField(max_length=50, blank=True)
+
 # ---------------------------------------------------------
 # --------------------- Skema History ---------------------
 # ---------------------------------------------------------
