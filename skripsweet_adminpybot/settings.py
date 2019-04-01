@@ -25,7 +25,13 @@ SECRET_KEY = 'g_y#+%*92t&jpits(lfy07%lp*v4ft5kcsz$^t4_m9l5=a%_$t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['*']
+=======
+ALLOWED_HOSTS = [
+    'veronica.skripsi.top',
+]
+>>>>>>> 936419a0cc113df94104538ab2421c1d8640d148
 
 
 # Application definition
