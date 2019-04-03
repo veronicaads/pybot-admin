@@ -12,10 +12,10 @@ def process_form(request):
     th.idtransaction = str(int(1 if TransactionHeader.objects.all().last() == None else TransactionHeader.objects.all().last().idtransaction) + 1)
     th.nohp = data.get('telp')
     th.namacust = data.get('nama')
-    id = data.get('id[]')
-    kuantitas = data.get('kuantitas[]')
-    gambar = data.get('gambar[]')
-    keterangan = data.get('keterangan[]')
+    id = data.getlist('id[]')
+    kuantitas = data.getlist('kuantitas[]')
+    gambar = data.getlist('gambar[]')
+    keterangan = data.getlist('keterangan[]')
     totalharga = 0
     for i in range(len(id)):
         od = OrderDetails()
