@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from skripsweet_adminpage.views import index
+from skripsweet_adminpage.views import index, process_form
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
+    path('pesan', process_form, name="pesan"),
 ]
