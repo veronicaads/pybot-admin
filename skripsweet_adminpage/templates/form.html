@@ -6,13 +6,74 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Form Pemesanan</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <p class="navbar-brand">Form Pemesanan</p>
-  </nav>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a href="#" class="navbar-brand">Form Pemesanan</a>
+    </div>
+  </nav> <br>
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Detail Pemesanan</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mohon isi form berikut sesuai dengan pemesanan yang ingin dilakukan</h6>
+        <form method="post" action="#">
+          {{ csrf }}
+          <div class="form-group">
+            <label for="nama">Nama</label>
+            <input type="text" class="form-control" id="nama" placeholder="Nama">
+          </div>
+          <div class="form-group">
+            <label for="alamat">Alamat Tujuan</label>
+            <input type="text" class="form-control" id="alamat" placeholder="Alamat Tujuan">
+          </div>
+          <div class="form-group">
+            <label for="telp">Nomor Telepon</label>
+            <input type="text" class="form-control" id="telp" placeholder="Nomor Telepon">
+          </div>
+          <button class="btn btn-warning" id="tambahBarang"><i class="fa fa-plus"></i> Tambah Barang</button> <br> <br>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>ID Produk</th>
+                <th>Kuantitas</th>
+                <th>Gambar</th>
+                <th>Keterangan</th>
+                <th>Hapus</th>
+              </tr>
+            </thead>
+            <tbody id="formDetail">
+              <!-- Fill table here -->
+            </tbody>
+          </table>
+          <button type="submit" class="btn btn-block btn-primary">Kirim</button>
+        </form>
+      </div>
+    </div>
+  </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script>
+    $('#tambahBarang').click(() => {
+      let id = Math.floor(Math.random() * 1000001);
+      let tr = $('<tr id="produk' + id + '"></tr>');
+      tr.append($('<td><input class="form-control" type="text" name="id[]" id="idProduk' + id + '"></td>'));
+      tr.append($('<td><input class="form-control" type="number" name="kuantitas[]" id=" kuantitas' + id + '"></td>'));
+      tr.append($('<td><div class="custom-file"><input class="custom-file-input" type="file" name="gambar[]" id="gambar' + id + '"><label class="custom-file-label" for="gambar' + id + '">Pilih gambar...</label></div></td>'));
+      tr.append($('<td><textarea class="form-control" name="keterangan[]" id="keterangan' + id + '"></textarea></td>'));
+      let hapus = $('<td><button class="btn btn-danger" id="hapus' + id + '"><i class="fa fa-minus-circle"></i></button></td>');
+      hapus.click(() => {
+        $('#produk' + id).remove();
+        return false;
+      });
+      tr.append(hapus);
+      console.log(tr);
+      $('#formDetail').append(tr);
+      return false;
+    });
+  </script>
 </body>
 </html>
