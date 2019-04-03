@@ -3,4 +3,4 @@ from django.shortcuts import render
 from .models import *
 
 def index(request):
-    return HttpResponse(render(request, 'views/form.html', None))
+    return HttpResponse(render(request, 'form.html', None))
