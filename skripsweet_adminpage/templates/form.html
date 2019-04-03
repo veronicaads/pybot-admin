@@ -20,7 +20,7 @@
         <h5 class="card-title">Detail Pemesanan</h5>
         <h6 class="card-subtitle mb-2 text-muted">Mohon isi form berikut sesuai dengan pemesanan yang ingin dilakukan</h6>
         <form method="post" action="#">
-          {{ csrf }}
+          {% csrf_token %}
           <div class="form-group">
             <label for="nama">Nama</label>
             <input type="text" class="form-control" id="nama" placeholder="Nama">
