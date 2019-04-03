@@ -9,7 +9,7 @@ def index(request):
 def process_form(request):
     data = request.POST.copy()
     th = TransactionHeader()
-    th.idtransaction = str(int(TransactionHeader.objects.annotate(Count('idtransaction'))) + 1)
+    th.idtransaction = str(int(1 if TransactionHeader.objects.all().last() == None else TransactionHeader.objects.all().last().idtransaction) + 1)
     th.nohp = data.get('telp')
     th.namacust = data.get('nama')
     id = data.get('id[]')
@@ -19,7 +19,7 @@ def process_form(request):
     totalharga = 0
     for i in range(len(id)):
         od = OrderDetails()
-        od.idorder = str(int(OrderDetails.objects.annotate(Count('idorder'))) + 1)
+        od.idorder = str(int(1 if OrderDetails.objects.all().last() == None else OrderDetails.objects.all().last().idorder) + 1)
         od.idproduk = Produk.objects.find(pk=id[i])
         od.qty = int(kuantitas[i])
         od.gambar = gambar[i]
