@@ -20,7 +20,7 @@ def process_form(request):
     for i in range(len(id)):
         od = OrderDetails()
         od.idorder = str(int(1 if OrderDetails.objects.all().last() == None else OrderDetails.objects.all().last().idorder) + 1)
-        od.idproduk = Produk.objects.find(pk=id[i])
+        od.idproduk = Produk.objects.get(pk=id[i])
         od.qty = int(kuantitas[i])
         od.gambar = gambar[i]
         od.keterangan = keterangan[i]
