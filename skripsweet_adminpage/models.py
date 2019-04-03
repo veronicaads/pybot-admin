@@ -38,9 +38,9 @@ class TransactionHeader(models.Model):
     namacust = models.CharField(max_length=50)
     totalharga = models.IntegerField()
     alamatkirim = models.CharField(max_length=50)
-    noresi = models.CharField(max_length=50, blank=True)
+    noresi = models.CharField(max_length=50, blank=True, null=True)
     ongkoskirim = models.IntegerField()
-    keterangantambahan = models.TextField(blank=True)
+    keterangantambahan = models.TextField(blank=True, null=True)
 
 class OrderDetails(models.Model):
     idorder = models.CharField(max_length=5, primary_key=True)
