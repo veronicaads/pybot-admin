@@ -23,15 +23,15 @@
           {% csrf_token %}
           <div class="form-group">
             <label for="nama">Nama</label>
-            <input type="text" class="form-control" id="nama" placeholder="Nama">
+            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
           </div>
           <div class="form-group">
             <label for="alamat">Alamat Tujuan</label>
-            <input type="text" class="form-control" id="alamat" placeholder="Alamat Tujuan">
+            <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat Tujuan">
           </div>
           <div class="form-group">
             <label for="telp">Nomor Telepon</label>
-            <input type="text" class="form-control" id="telp" placeholder="Nomor Telepon">
+            <input type="text" class="form-control" id="telp" name="telp" placeholder="Nomor Telepon">
           </div>
           <button class="btn btn-warning" id="tambahBarang"><i class="fa fa-plus"></i> Tambah Barang</button> <br> <br>
           <table class="table table-bordered table-striped">
