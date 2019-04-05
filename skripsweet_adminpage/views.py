@@ -5,7 +5,7 @@ from .models import *
 
 def index(request):
     prod = Produk.objects.all()
-    return HttpResponse(render(request, 'form.html', prod))
+    return HttpResponse(render(request, 'form.html', {'prod': prod}))
 
 def process_form(request):
     data = request.POST.copy()
