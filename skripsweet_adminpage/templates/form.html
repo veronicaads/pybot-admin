@@ -62,7 +62,7 @@
       let tr = $('<tr id="produk' + id + '"></tr>');
       let sel = $('<select class="custom-select" name="id[]" id="idProduk' + id + '"></select>');
       {% for p in prod %}
-      sel.append('<option value="' + '{{ p.idproduk }}' + '">' + '{{ p.idproduk }}' + '</option>')
+      sel.append('<option value="{{ p.idproduk }}">{{ p.idproduk }}</option>');
       {% endfor %}
       tr.append($('<td></td>'.append(sel)));
       tr.append($('<td><input class="form-control" type="number" name="kuantitas[]" id=" kuantitas' + id + '"></td>'));
