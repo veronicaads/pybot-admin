@@ -4,7 +4,8 @@ from django.db.models import Count
 from .models import *
 
 def index(request):
-    return HttpResponse(render(request, 'form.html', None))
+    prod = Produk.objects.all()
+    return HttpResponse(render(request, 'form.html', prod))
 
 def process_form(request):
     data = request.POST.copy()
