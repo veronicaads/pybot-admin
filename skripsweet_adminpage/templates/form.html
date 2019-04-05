@@ -64,7 +64,7 @@
       {% for p in prod %}
       sel.append($('<option value="{{ p.idproduk }}">{{ p.idproduk }}</option>'));
       {% endfor %}
-      tr.append($('<td></td>'.append(sel)));
+      tr.append($('<td></td>').append(sel));
       tr.append($('<td><input class="form-control" type="number" name="kuantitas[]" id=" kuantitas' + id + '"></td>'));
       tr.append($('<td><div class="custom-file"><input class="custom-file-input" type="file" name="gambar[]" id="gambar' + id + '"><label class="custom-file-label" for="gambar' + id + '">Pilih gambar...</label></div></td>'));
       tr.append($('<td><textarea class="form-control" name="keterangan[]" id="keterangan' + id + '"></textarea></td>'));
